@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+  # Base de Datos Oracle XE
+  oracle-db:
+    image: gvenzl/oracle-xe:21-slim
+    container_name: oracle-db
+    ports:
+      - "1522:1521"
+    environment:
+      - ORACLE_PASSWORD=admin
+      - APP_USER=system
+      - APP_USER_PASSWORD=admin
+    networks:
+      - shop-network
+
+  # Microservicio de Usuarios (Puerto 8085)
+  ms-usuarios:
+    build: ./ms-usuarios
+    container_name: ms-usuarios
+    ports:
+      - "8085:8085"
+    depends_on:
+      - oracle-db
+    networks:
+      - shop-network
+
+  # Microservicio de Productos (Puerto 8081)
+  ms-productos:
+    build: ./ms-productos
+    container_name: ms-productos
+    ports:
+      - "8081:8081"
+    depends_on:
+      - oracle-db
+    networks:
+      - shop-network
+
+  # Microservicio de Inventario (Puerto 8082)
+  ms-inventario:
+    build: ./ms-inventario
+    container_name: ms-inventario
+    ports:
+      - "8082:8082"
+    depends_on:
+      - oracle-db
+    networks:
+      - shop-network
+
+  # Microservicio de Pedidos (Puerto 8083)
+  ms-pedidos:
+    build: ./ms-pedidos
+    container_name: ms-pedidos
+    ports:
+      - "8083:8083"
+    depends_on:
+      - oracle-db
+    networks:
+      - shop-network
+
+  # Microservicio de Pagos (Puerto 8084)
+  ms-pagos:
+    build: ./ms-pagos
+    container_name: ms-pagos
+    ports:
+      - "8084:8084"
+    depends_on:
+      - oracle-db
+    networks:
+      - shop-network
+
+# Red interna de Docker
+networks:
+  shop-network:
+    driver: bridge

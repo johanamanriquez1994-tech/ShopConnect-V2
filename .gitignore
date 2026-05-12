@@ -1,0 +1,17 @@
+# Ignorar carpetas de las complicadas de java
+**/target/
+**/bin/
+
+# Ignorar archivos de configuración de VS Code y Eclipse
+.vscode/
+.settings/
+.classpath
+.project
+.factorypath
+
+# Ignorar archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar la base de datos de Docker (para que no pese GB)
+oracle_data/
