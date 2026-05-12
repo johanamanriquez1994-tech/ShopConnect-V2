@@ -1,15 +1,21 @@
-# 🛒 ShopConnect V2 - Sistema de Microservicios
+# 🛒 ShopConnect V2 - Microservicios Operativos
 
-Este proyecto es una arquitectura de microservicios orquestada con Docker y Oracle XE.
-
-## 📸 Evidencias de Funcionamiento
-
-### Contenedores en Docker Desktop
+## 📸 Evidencia General (Docker Desktop)
 ![Docker](evidencias/docker.png)
 
-### Documentación Swagger
-![Swagger](evidencias/swagger.png)
+## 📋 Detalle de cada Microservicio (Swagger)
 
-## 🛠️ Ejecución
-1. Ejecutar `docker-compose up --build`
-2. Acceder a: http://localhost:8081/swagger-ui/index.html
+### 1. MS Productos
+![Productos](evidencias/swagger.png)
+
+### 2. MS Inventario
+![Inventario](evidencias/swaggerg.png)
+
+### 3. MS Pedidos
+![Pedidos](evidencias/swaggerp.png)
+
+### 4. MS Pagos
+![Pagos](evidencias/swaggert.png)
+
+### 5. MS Usuarios
+![Usuarios](evidencias/swaggeru.png)
