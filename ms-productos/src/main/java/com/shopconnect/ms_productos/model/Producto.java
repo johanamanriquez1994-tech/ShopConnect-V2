@@ -20,7 +20,7 @@ public class Producto {
     @Min(value = 1, message = "El precio debe ser al menos 1")
     private Double precio;
 
-    // ESTA ES LA MODIFICACIÓN
+   
     @ManyToMany
     @JoinTable(
       name = "producto_categoria",
@@ -31,9 +31,9 @@ public class Producto {
 
     public Producto() {}
 
-    // No borres tus getters y setters anteriores, solo añade estos al final:
+   
     public Set<Categoria> getCategorias() { return categorias; }
     public void setCategorias(Set<Categoria> categorias) { this.categorias = categorias; }
 
-    // ... (Tus otros getters y setters manuales que ya tenías)
+    
 }

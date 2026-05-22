@@ -7,6 +7,6 @@ import java.util.Optional;
 
 @Repository
 public interface InventarioRepository extends JpaRepository<Inventario, Long> {
-    // Buscamos por productoId para saber cuánto stock tiene un producto específico
+   
     Optional<Inventario> findByProductoId(Long productoId);
 }

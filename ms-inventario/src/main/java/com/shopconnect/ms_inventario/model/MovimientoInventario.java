@@ -17,7 +17,7 @@ public class MovimientoInventario {
     private Long inventarioId;
 
     @NotBlank(message = "El tipo de movimiento es obligatorio")
-    private String tipo; // Ejemplo: "INGRESO" o "SALIDA"
+    private String tipo; 
 
     @NotNull(message = "La cantidad es obligatoria")
     private Integer cantidad;
