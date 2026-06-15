@@ -17,7 +17,7 @@ public class TransaccionPago {
     private Long pagoId;
 
     @NotBlank(message = "El código de transacción es obligatorio")
-    private String codigoTransaccion; // El ID que viene del banco o Stripe/PayPal
+    private String codigoTransaccion; 
 
     private LocalDateTime fechaTransaccion;
 

@@ -12,7 +12,7 @@ public class MetodoPago {
     private Long id;
 
     @NotBlank(message = "El nombre del método de pago es obligatorio")
-    private String nombre; // Ejemplo: "Tarjeta de Crédito", "PayPal", "Efectivo"
+    private String nombre;
 
     public MetodoPago() {}
 

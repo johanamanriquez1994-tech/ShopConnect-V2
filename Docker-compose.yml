@@ -6,7 +6,7 @@ services:
     image: gvenzl/oracle-xe:21-slim
     container_name: oracle-db
     ports:
-      - "1522:1521"
+      - "1523:1521"  # Tu gestor de BD (DBeaver/SQL Developer) se conectará por el 1522
     environment:
       - ORACLE_PASSWORD=admin
       - APP_USER=system
@@ -16,7 +16,7 @@ services:
 
   # Microservicio de Usuarios (Puerto 8085)
   ms-usuarios:
-    build: ./ms-usuarios
+    image: shopconnect/ms-usuarios:0.0.1
     container_name: ms-usuarios
     ports:
       - "8085:8085"
@@ -27,7 +27,7 @@ services:
 
   # Microservicio de Productos (Puerto 8081)
   ms-productos:
-    build: ./ms-productos
+    image: shopconnect/ms-productos:0.0.1
     container_name: ms-productos
     ports:
       - "8081:8081"
@@ -38,7 +38,7 @@ services:
 
   # Microservicio de Inventario (Puerto 8082)
   ms-inventario:
-    build: ./ms-inventario
+    image: shopconnect/ms-inventario:0.0.1
     container_name: ms-inventario
     ports:
       - "8082:8082"
@@ -49,7 +49,7 @@ services:
 
   # Microservicio de Pedidos (Puerto 8083)
   ms-pedidos:
-    build: ./ms-pedidos
+    image: shopconnect/ms-pedidos:0.0.1
     container_name: ms-pedidos
     ports:
       - "8083:8083"
@@ -60,7 +60,7 @@ services:
 
   # Microservicio de Pagos (Puerto 8084)
   ms-pagos:
-    build: ./ms-pagos
+    image: shopconnect/ms-pagos:0.0.1
     container_name: ms-pagos
     ports:
       - "8084:8084"

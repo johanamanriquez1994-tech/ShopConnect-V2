@@ -1,5 +1,6 @@
 package com.shopconnect.ms_usuarios.service;
 
+import com.shopconnect.ms_usuarios.dto.UsuarioDTO;
 import com.shopconnect.ms_usuarios.model.Usuario;
 import com.shopconnect.ms_usuarios.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,13 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    public Usuario save(Usuario usuario) {
+    public Usuario save(UsuarioDTO usuarioDTO) {
+        Usuario usuario = new Usuario();
+        
+        usuario.setNombre(usuarioDTO.getUsername());
+        usuario.setEmail(usuarioDTO.getEmail());
+        usuario.setPassword(usuarioDTO.getPassword());
+        
         return usuarioRepository.save(usuario);
     }
 }

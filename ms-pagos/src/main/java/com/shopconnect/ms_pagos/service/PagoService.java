@@ -1,5 +1,6 @@
 package com.shopconnect.ms_pagos.service;
 
+import com.shopconnect.ms_pagos.dto.PagoDTO;
 import com.shopconnect.ms_pagos.model.Pago;
 import com.shopconnect.ms_pagos.repository.PagoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,15 +13,17 @@ public class PagoService {
     @Autowired
     private PagoRepository pagoRepository;
 
-    public List<Pago> listarTodos() {
+    public List<Pago> obtenerTodos() {
         return pagoRepository.findAll();
     }
 
-    public Pago registrarPago(Pago pago) {
-        // Por defecto, si se registra, lo ponemos como COMPLETADO por ahora
-        if (pago.getEstado() == null) {
-            pago.setEstado("COMPLETADO");
-        }
+    public Pago procesarPago(PagoDTO pagoDTO) {
+        Pago pago = new Pago();
+        
+        pago.setPedidoId(pagoDTO.getPedidoId());
+        pago.setMonto(pagoDTO.getMonto());
+        pago.setEstado(pagoDTO.getEstado() != null ? pagoDTO.getEstado() : "PROCESANDO");
+
         return pagoRepository.save(pago);
     }
 }

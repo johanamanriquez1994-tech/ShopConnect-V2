@@ -12,7 +12,7 @@ public class RolUsuario {
     private Long id;
 
     @NotBlank(message = "El nombre del rol es obligatorio")
-    private String nombre; // Ejemplo: ADMIN, USER
+    private String nombre; 
 
     public RolUsuario() {}
 

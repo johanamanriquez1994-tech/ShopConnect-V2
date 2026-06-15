@@ -13,7 +13,7 @@ public class ImagenProducto {
     @NotBlank(message = "La URL de la imagen es obligatoria")
     private String url;
 
-    private Long productoId; // Referencia al producto
+    private Long productoId; 
 
     public ImagenProducto() {}
     public Long getId() { return id; }
